@@ -50,5 +50,5 @@ On `Dockerfile` change the `COPY --from=react-builder` to  `COPY --from=react-bu
 
 Now fix it to the way it was, and linter should pass.
 
-
+<img src="./screenshots/5.png">
 
