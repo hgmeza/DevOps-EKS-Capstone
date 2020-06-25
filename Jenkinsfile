@@ -6,9 +6,18 @@ pipeline {
         sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
       }
     }
-    stage("Build Docker File") {
+    stage('Build Docker File') {
       steps {
         sh 'docker build -t ${registry} .'
+      }
+    }
+    stage('Push to Dockerhub') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+          sh 'docker login -u ${env.dockerUser} -p ${env.dockerPassword}'
+          sh 'docker tag ${registry} ${registry}'
+          sh 'docker push ${registry}'
+        }
       }
     }
   }
