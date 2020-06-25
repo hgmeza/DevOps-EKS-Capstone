@@ -41,4 +41,14 @@ Check that it was installed by doing:
 - `docker --version`
 
 ## Hadolint
-Hadolint is a Docker linter. Make a random mistake like incorrect indentation on the `Dockerfile`, then lets create a `Jenkins` file to start a Continous Intagration (CI) pipeline.
+Hadolint is a Docker linter. Make a random mistake like incorrect alias name on the `Dockerfile`, then lets create a `Jenkins` file to start a Continous Intagration (CI) pipeline.
+- Run `sudo usermod -a -G docker jenkins`
+
+On `Dockerfile` change the `COPY --from=react-builder` to  `COPY --from=react-build` or something different. Then check Jenkins after pushing your changes to github.
+
+<img src="./screenshots/4.png">
+
+Now fix it to the way it was, and linter should pass.
+
+
+
