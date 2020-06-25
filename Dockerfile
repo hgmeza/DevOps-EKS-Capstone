@@ -1,6 +1,6 @@
 # Needs to be divided into stages:
 # stage 1: build the react code
-FROM node:8 as react-builder
+FROM node:12-alpine as react-builder
 WORKDIR /app
 COPY ./client ./
 RUN yarn install
