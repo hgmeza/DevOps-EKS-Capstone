@@ -59,3 +59,18 @@ Configure the credentials on Jenkins, and have the reference to be `dockerhub`.
 
 <img src="./screenshots/6.png">
 
+## Uploading to Dockerhub
+Ideally, if you are working with images, it might be a better idea to store your images on AWS `Elastic Container Registry` to have everything within a single service. But for convenience, we are using Dockerhub.
+
+<img src="./screenshots/7.png">
+
+And tada! Its on the dockerhub repo!
+<img src="./screenshots/8.png">
+
+## Elastik Kubernetes Service (EKS)
+Configure and deploy a new cluster using AWS EKS.
+
+<img src="./screenshots/9.png">
+
+Container applications and microservices in general benefit from a Blue/Green deployment. So configuring those files are essential in Jenkins. The `./depoyments` folder contains the required configurations for the Blue/Green deployment.
+

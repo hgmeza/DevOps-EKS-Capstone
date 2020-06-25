@@ -20,5 +20,47 @@ pipeline {
         }
       }
     }
+    stage('Set Kubernetes Context') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					echo 'i work'
+				}
+			}
+		}
+    stage('Deploy Blue Container') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					echo 'i work'
+				}
+			}
+		}
+
+		stage('Deploy green container') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					echo 'i work'
+				}
+			}
+		}
+
+		stage('Create the service in the cluster, redirect to blue') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					echo 'i work'
+				}
+			}
+		}
+    stage('User Approval') {
+      steps {
+          echo 'i work'
+      }
+    }
+    stage('Create the service in the cluster, redirect to green') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					echo 'i work'
+				}
+			}
+		}
   }
 }
