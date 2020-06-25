@@ -52,3 +52,7 @@ Now fix it to the way it was, and linter should pass.
 
 <img src="./screenshots/5.png">
 
+## Building the Dockerfile
+Adding a new pipeline stage is pretty straight forward. Now lets add a stage to build the `Dockerfile` to then be pushed to the our docker account.
+
+Configure the credentials on Jenkins, and have the reference to be `dockerhub`.
