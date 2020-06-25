@@ -22,34 +22,44 @@ pipeline {
     }
     stage('Set Kubernetes Context') {
 			steps {
-				sh 'echo "i work"'
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					sh 'kubectl config use-context ${cluster-arn}'
+				}
 			}
 		}
     stage('Deploy Blue Container') {
 			steps {
-				sh 'echo "i work"'
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					sh 'kubectl apply -f ./deployments/blue-controller.json'
+				}
 			}
 		}
 
-		stage('Deploy green container') {
+		stage('Deploy Green Container') {
 			steps {
-				sh 'echo "i work"'
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					sh 'kubectl apply -f ./deployments/green-controller.json'
+				}
 			}
 		}
 
-		stage('Create the service in the cluster, redirect to blue') {
+		stage('Redirect to Blue') {
 			steps {
-				sh 'echo "i work"'
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					sh 'kubectl apply -f ./deployments/blue-service.json'
+				}
 			}
 		}
     stage('User Approval') {
       steps {
-          sh 'echo "i work"'
+          input "Ready to redirect traffic to green?"
       }
     }
-    stage('Create the service in the cluster, redirect to green') {
+    stage('Redirect to Green') {
 			steps {
-				sh 'echo "i work"'
+				withAWS(region:'us-east-2', credentials:'pipeline') {
+					sh 'kubectl apply -f ./deployments/green-service.json'
+				}
 			}
 		}
   }

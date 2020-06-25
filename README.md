@@ -72,5 +72,13 @@ Configure and deploy a new cluster using AWS EKS.
 
 <img src="./screenshots/9.png">
 
-Container applications and microservices in general benefit from a Blue/Green deployment. So configuring those files are essential in Jenkins. The `./depoyments` folder contains the required configurations for the Blue/Green deployment.
+Container applications and microservices in general benefit from a Blue/Green deployment. So configuring those files are essential in Jenkins. The `./deployments` folder contains the required configurations for the Blue/Green deployment.
 
+The new stages for givin context, deploy blue and green containers, creating the cluster service, user approval, and final deployments are made.
+
+<img src="./screenshots/10.png">
+
+## Deployed App
+Finally, accessing the DNS from Load Balancer, we have access to the client!
+
+<img src="./screenshots/11.png">
