@@ -29,3 +29,16 @@ Access your serves using the DNS name as provided in AWS. Jenkins runs on port `
 
 Install `Blue Ocean` and the `pipeline-aws`. Once you connect it to your github repo, you should have something like this:
 <img src="./screenshots/3.png">
+
+## Docker
+Docker will be essential to be able to build the images, install docker on the Ubuntu EC2 by doing:
+- `sudo apt-get update`
+- `sudo apt install docker.io`
+- `sudo systemctl start docker`
+- `sudo systemctl enable docker`
+
+Check that it was installed by doing:
+- `docker --version`
+
+## Hadolint
+Hadolint is a Docker linter. Make a random mistake like incorrect indentation on the `Dockerfile`, then lets create a `Jenkins` file to start a Continous Intagration (CI) pipeline.
